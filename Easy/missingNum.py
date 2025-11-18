@@ -1,12 +1,10 @@
-from collections import Counter 
 from typing import List
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        neededLen = len(nums) + 1
-        seenNums = Counter(nums)
-        
-        for i in range(neededLen):
-            if i not in seenNums:
+        lookupNums = set(nums)
+        nums.sort()
+        for i in range(0, len(nums) + 1):
+            if i not in lookupNums:
                 return i
             
 s = Solution()
