@@ -1,14 +1,12 @@
-from collections import Counter
 from typing import List
 class Solution:
     def countElements(self, arr: List[int]) -> int:
-        nums = Counter(arr)
+        lookupNuns = set(arr)
         cnt = 0
-        
+
         for i in range(len(arr)):
-            if arr[i] + 1 in nums:
+            if arr[i] + 1 in lookupNuns:
                 cnt += 1
-                
         return cnt
     
 s = Solution()
