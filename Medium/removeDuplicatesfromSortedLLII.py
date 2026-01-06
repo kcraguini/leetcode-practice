@@ -5,29 +5,28 @@ class ListNode:
         self.val = val
         self.next = next
 
-
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         def delete(prev):
-            if prev and prev.next:
+            while prev.val == prev.next.val:
                 prev.next = prev.next.next
+            
+        seenVals = set()
         curr = head
-
         while curr and curr.next:
-            if curr.val == curr.next.val:
+            if curr.val in seenVals:
                 delete(curr)
             else:
+                seenVals.add(curr.val)
                 curr = curr.next
-            
-        
-        return head
 
+        return head
 
 def insert(root, val):
     temp = ListNode(0)
     temp.val = val
     temp.next = root
-    root = temp
+    root = temp 
     return root
 
 def display(root):
@@ -42,13 +41,17 @@ def arrayToList(arr, n):
         root = insert(root, arr[i])
     return root
 
-if __name__ == '__main__':  
-    arr = [1,1,1,1,2,2,2,3,4,5]
+if __name__ == '__main__':
+    arr = [1,2,3,3,4,4,5]
     n = len(arr)
     root = arrayToList(arr, n)
-    print("Original Array")
+    
+    #Original
+    print("Original Linked List")
     display(root)
-    print("Removing the duplicates")
+
+    #Revised LL
     sol = Solution()
     root = sol.deleteDuplicates(root)
+    print("Revised Linked List")
     display(root)
