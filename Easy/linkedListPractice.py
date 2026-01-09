@@ -16,7 +16,8 @@ class Solution:
         while curr and curr.next:
             if curr.val == curr.next.val:
                 delete(curr)
-            curr = curr.next
+            else:
+                curr = curr.next
 
 
         return head
