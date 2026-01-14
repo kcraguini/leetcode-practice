@@ -4,24 +4,7 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def swapNode(self, head):
-        if not head or not head.next:
-            return head
-        
-        dummy = head.next
-        prev = None
-        while head and head.next:
-            if prev:
-                prev.next = head.next
-            prev = head
-
-            next_node = head.next.next
-            head.next.next = head
-
-            head.next = next_node
-            head = next_node
-
-        return dummy
+    def swa
 
 def insert(root, val):
     temp = ListNode(0)
