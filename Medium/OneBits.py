@@ -1,0 +1,2 @@
+def getOneBits(n):
+    

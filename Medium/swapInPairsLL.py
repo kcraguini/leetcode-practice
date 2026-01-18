@@ -14,20 +14,25 @@ class Solution:
         
         
         while head and head.next:
+            print("In the while loop")
+            display(dummy)
             if prev:
                 prev.next = head.next
+                #print(f"Prev.next {prev.next.val}")
             prev = head
-            print(f"Prev {prev.val}")
+            #print(f"Prev {prev.val}")
 
             next_node = head.next.next
-            print(f"Next_node {next_node.val}")
+            #print(f"Next_node {next_node.val}")
             head.next.next = head
-            print(f"Head.next.next {head.next.next.val}")
+            #print(f"Head.next.next {head.next.next.val}")
             head.next = next_node
-            print(f"Head.next {head.next.val}")
+            #print(f"Head.next {head.next.val}")
             head = next_node
-            print(f"Head {head.val}")
-            print()
+            #print(f"Head {head.val}")
+            #print()
+
+            
         return dummy
 
         
@@ -53,7 +58,7 @@ def arrayToList(arr, n):
     return root
     
 if __name__ == '__main__':
-    arr = [1,2,3,4,5]
+    arr = [1,2,3,4,5,6,7,8,9,10]
     n = len(arr)
     root = arrayToList(arr, n)
     print("Original List:", end=" ")
