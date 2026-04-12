@@ -14,6 +14,7 @@ class Solution:
             stack.append(i)
 
         return answer
+    
         
 
 if __name__ == "__main__":
