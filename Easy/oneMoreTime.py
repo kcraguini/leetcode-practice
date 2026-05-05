@@ -1,0 +1,33 @@
+from typing import Optional
+
+class TreeNode:
+    def __init__(self, val, left, right):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+       # There's nothing there
+        if not root:
+           return 0
+
+        if root.left is None:
+            return 1 + self.minDepth(root.right)
+        elif root.right is None:
+            return 1 + self.minDepth(root.left)
+    
+        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+    
+
+    
+
+fifteen = TreeNode(15, None, None)
+seven = TreeNode(7, None, None)
+twenty = TreeNode(20, fifteen, seven)
+nine = TreeNode(9, None, None)
+three = TreeNode(3, nine, twenty)
+
+s = Solution()
+print(s.minDepth(three))
