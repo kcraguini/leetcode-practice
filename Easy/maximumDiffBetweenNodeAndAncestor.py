@@ -14,6 +14,7 @@ class Solution:
         return    
     def preOrder(self, root: Optional[TreeNode]):
         if not root:
+            print("null")
             return 
 
         print(root.val)
@@ -30,3 +31,6 @@ fourteen = TreeNode(14, thirteen, None)
 three = TreeNode(3, one, six)
 ten = TreeNode(10, None, fourteen)
 eight = TreeNode(8, three, ten)
+
+sol = Solution()
+print(sol.preOrder(eight))
