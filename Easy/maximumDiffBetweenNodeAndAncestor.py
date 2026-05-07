@@ -12,9 +12,17 @@ class Solution:
         if not root:
             return 0
         
+        def helper(root, curr_min, curr_max):
+            if not root:
+                return abs(curr_max - curr_min)
+        # Need to traverse both
+
         
 
-        return    
+        
+        
+
+           
     def preOrder(self, root: Optional[TreeNode]):
         if not root:
             print("null")
@@ -36,4 +44,5 @@ ten = TreeNode(10, None, fourteen)
 eight = TreeNode(8, three, ten)
 
 sol = Solution()
+print(sol.maxAncestorDiff(eight))
 print(sol.preOrder(eight))
