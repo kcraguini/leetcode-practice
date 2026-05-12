@@ -12,10 +12,20 @@ class Solution:
         if not root:
             return 0
         
-        def helper(root, curr_min, curr_max):
+        def helper(root, curr_min, curr_max):  
             if not root:
-                return abs(curr_max - curr_min)
-        # Need to traverse both
+                return abs(curr_max - curr_min)   
+            # Need to traverse both
+            curr_min = min(curr_min, root.val)
+            curr_max = max(curr_max, root.val)
+
+            print(f"This is the min {curr_min}, max {curr_max}")
+
+            return max(helper(root.left, curr_min, curr_max), helper(root.right, curr_min, curr_max)) 
+
+            
+
+        return helper(root, root.val, root.val)
 
         
 
@@ -45,4 +55,4 @@ eight = TreeNode(8, three, ten)
 
 sol = Solution()
 print(sol.maxAncestorDiff(eight))
-print(sol.preOrder(eight))
+#print(sol.preOrder(eight))
