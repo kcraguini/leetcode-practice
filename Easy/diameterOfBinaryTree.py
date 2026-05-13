@@ -1,3 +1,5 @@
+from typing import Optional
+
 class TreeNode:
     def __init__(self, val, left, right):
         self.val = val
@@ -17,3 +19,8 @@ class Solution:
         return 1 + max(self.diamterOfBinaryTree(root.left), self.diamterOfBinaryTree(root.right))
     
 
+four = TreeNode(4, None, None)
+five = TreeNode(5, None, None)
+two = TreeNode(2, four, five)
+three = TreeNode(3, None, None)
+one = TreeNode(1, two, three) 
