@@ -9,23 +9,21 @@ class TreeNode:
 
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        def helper(root, diameter):
+        self.diameter = 0
+        def helper(root):
             if not root:
                 return 0
             
-            if root.right is None:
-                left = 1 + helper(root.left, diameter)
-            elif root.left is None:
-                right = 1 + helper(root.right, diameter)
-            else:
-                left = 1 + helper(root.left, diameter)
-                right = 1 + helper(root.right, diameter)
+            left = helper(root.left)
+            right = helper(root.right)
 
-            #print(f"Left {left}, Right {right}")
-            diameter += max(left, right)
+            self.diameter = max(self.diameter, left + right)
 
-            return diameter
-        return helper(root, 0)
+            return 1 + max(left, right)
+        
+        helper(root)
+        return self.diameter
+    
     
     def preOrder(self, root: Optional[TreeNode]):
         if not root:
